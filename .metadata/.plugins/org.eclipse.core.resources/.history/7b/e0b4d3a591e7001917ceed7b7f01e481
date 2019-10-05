@@ -1,0 +1,24 @@
+package game;
+
+public class TicTacToeMain {
+	
+	public static void main(String[] args) {
+		TicTacToe ttt = new TicTacToe();
+		System.out.println(ttt.toString());
+		
+		ttt.makeMovement(0,2, 'X');
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println(ttt);
+		
+		for(int i = 0; i <3 ; i++) {
+			System.out.print("oi \b\b\b");
+		}
+		
+		
+	}
+	
+
+
+}

@@ -1,0 +1,48 @@
+package game;
+
+public class TicTacToeController {
+	private TicTacToe ttt;
+	private Player p1;
+	private Player p2;
+	
+	public TicTacToeController() {
+		this.ttt = new TicTacToe();
+	}
+	
+	public void setUpPlayers(String playersInfo[]) {
+		this.p1 = new Player(playersInfo[0], playersInfo[1]);
+		this.p2 = new Player(playersInfo[2], playersInfo[3]);
+	}
+	
+	public String[][] getBoard(){
+		return this.ttt.getBoard();
+	}
+	
+	public String getTurn() {
+		if(p1.getTurn()) return "1st player";
+		return "2nd player;
+	}
+	
+	public void makeMove(int line, int column) {
+		if(p1.getTurn() == true) {
+			this.ttt.makeMove(line, column, p1.getMove());
+			this.p1.setTurn(false);
+			this.p2.setTurn(true);
+			if(ttt.checkWin()) {
+				p1.increasetWins();
+				p2.increaseLosses();
+			}
+		}
+		else {
+			this.ttt.makeMove(line, column, p2.getMove());
+			this.p2.setTurn(false);
+			this.p1.setTurn(true);
+			if(ttt.checkWin()) {
+				p2.increasetWins();
+				p1.increaseLosses();
+			}
+		}
+	}
+	
+
+}

@@ -1,0 +1,74 @@
+package game;
+
+public class TicTacToe {
+	private String[][] board;		
+	public TicTacToe() {
+		this.board = new String[3][3];
+		fillEmptyBoard();
+	}
+	
+	
+	/*public void makeMove(int i, int j, Player player) {
+		try {
+			if(!board[i][j].isEmpty()) {
+
+			}
+			switch(elem) {
+				case 0:
+					board[i][j] = "X";
+					break;
+				case 1:
+					board[i][j] = "O";
+					break;
+				default:
+					System.out.println("Illegal movement attempt.");
+					break;
+			}
+			
+		}	
+		catch(ArrayIndexOutOfBoundsException aiobe) {
+			System.out.println();
+			System.out.println("Illegal index");
+		}
+	}*/
+	
+	
+	private boolean checkWin() {
+		int upLeftToRight = 0;
+		int mainDiagonal = 0;
+		int midLeftToRight = 0;
+		int downLeftToRight = 0;
+		for(int i = 0; i < this.board.length-1; i ++) {
+			if(board[0][i].equals(board[0][i+1])) 
+				upLeftToRight++;						
+			if(board[i][i].equals(board[i+1][i+1]))
+				mainDiagonal++;				
+			if(board[1][i].equals(board[i][i+1]))
+				midLeftToRight++;
+			if(board[2][i].equals(board[2][i+1]))
+				downLeftToRight++;
+		}
+		
+		if(upLeftToRight == 2 || mainDiagonal == 2 || midLeftToRight == 2 || downLeftToRight == 2)
+			return true;
+		
+		if(board[0][2].equals(board[1][1]) && board[1][1].equals(board[2][0]))
+			return true;
+		
+		return false;
+	}
+	
+	private void fillEmptyBoard() {
+		for(int i = 0; i < this.board.length; i++) {
+			for(int j = 0; j < this.board.length; j++) {
+				this.board[i][j] = "";
+			}
+		}
+	}
+	
+	public String[][] getBoard() {
+		return this.board;
+	}
+	
+
+}

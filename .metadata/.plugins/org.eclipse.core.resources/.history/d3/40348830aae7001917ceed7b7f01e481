@@ -1,0 +1,29 @@
+package game;
+
+import java.util.Scanner;
+
+public class TicTacToeMain {
+	
+	public static void main(String[] args) {
+		
+		String[] players = UI.start(new Scanner(System.in));
+		TicTacToeController ttc = new TicTacToeController();
+		ttc.setUpPlayers(players);
+		
+		Scanner sc = new Scanner(System.in);
+		String option = "";
+		while(!option.equals("end")) {
+			UI.printBoard(ttc.getBoard());
+			int[] move = UI.readTurn(new Scanner(System.in), ttc.getTurn());	
+			boolean result = ttc.makeMove(move[0], move[1]);
+			if (result == true) {
+				UI.showResult(ttc.getTurn(), ttc.getScore());
+				break;
+			}
+		}	
+		
+	}
+	
+
+
+}

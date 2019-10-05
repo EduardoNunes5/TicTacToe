@@ -1,0 +1,23 @@
+package game;
+
+public class TicTacToeController {
+	private TicTacToe ttt;
+	
+	public TicTacToeController() {
+		this.ttt = new TicTacToe();
+	}
+	
+	public void setUpPlayers(String playersInfo[]) {
+		ttt.setUpP1(playersInfo[0], playersInfo[1]);
+	}
+	
+	public String[][] getBoard(){
+		return this.ttt.getBoard();
+	}
+	
+	public void makeMove(int line, int column) {
+		this.ttt.makeMove(line, column, movement);
+	}
+	
+
+}

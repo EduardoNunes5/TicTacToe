@@ -1,0 +1,10 @@
+package game;
+
+public class TicTacToeController {
+	
+	public TicTacToeController() {
+		TicTacToe ttt = new TicTacToe();
+	}
+	
+
+}

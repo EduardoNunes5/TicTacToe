@@ -1,0 +1,44 @@
+package game;
+
+public class TicTacToe {
+	private String[][] board;
+		
+	public TicTacToe() {
+		this.board = new String[3][3];
+		fillEmptyBoard();
+	}
+	
+	public void makeMovement(int i, int j, int elem) {
+		try {
+			switch(elem) {
+				case 0:
+					board[i][j] = "X";
+					break;
+				case 1:
+					board[i][j] = "O";
+					break;
+				default:
+					System.out.println("Illegal movement attempt.");
+			}
+		}
+		
+		catch(ArrayIndexOutOfBoundsException aiobe) {
+			System.out.println();
+			System.out.println("Illegal index");
+		}
+	}
+	
+	private void fillEmptyBoard() {
+		for(int i = 0; i < this.board.length; i++) {
+			for(int j = 0; j < this.board.length; j++) {
+				this.board[i][j] = "";
+			}
+		}
+	}
+	
+	public String[][] getBoard() {
+		return this.board;
+	}
+	
+
+}

@@ -1,0 +1,14 @@
+package game;
+
+public class Player {
+	
+	private String name;
+	private int move;
+	private int wins;
+	private int losses;
+	
+	public Player(String name, String move) {
+		this.name = name;
+		this.move = Integer.parseInt(move);
+	}
+}

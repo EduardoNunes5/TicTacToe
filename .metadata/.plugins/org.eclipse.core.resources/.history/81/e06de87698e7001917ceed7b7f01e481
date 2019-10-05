@@ -1,0 +1,19 @@
+package game;
+
+public class TicTacToeMain {
+	
+	public static void main(String[] args) {
+		TicTacToe ttt = new TicTacToe();
+		UI.printBoard(ttt.getBoard());
+		ttt.makeMovement(0, -1, "X");
+		System.out.println();
+		System.out.println();
+		UI.printBoard(ttt.getBoard());
+
+		
+		
+	}
+	
+
+
+}

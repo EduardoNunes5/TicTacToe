@@ -1,0 +1,15 @@
+package game;
+
+public class TicTacToeController {
+	private TicTacToe ttt;
+	
+	public TicTacToeController() {
+		this.ttt = new TicTacToe();
+	}
+	
+	public String[][] getBoard(){
+		return this.ttt.getBoard();
+	}
+	
+
+}

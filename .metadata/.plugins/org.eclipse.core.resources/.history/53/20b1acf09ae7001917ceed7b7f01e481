@@ -1,0 +1,18 @@
+package game;
+
+public class TicTacToeMain {
+	
+	public static void main(String[] args) {
+		
+		TicTacToe ttt = new TicTacToe();
+		while(true) {
+			UI.printBoard(ttt.getBoard());
+		}
+
+		
+		
+	}
+	
+
+
+}

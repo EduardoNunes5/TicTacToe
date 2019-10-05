@@ -1,0 +1,27 @@
+package game;
+
+public class UI {
+	
+	
+	
+	public static void printBoard(String[][] board) {
+		int size = board.length;
+		for(int i = 0; i < size; i++) {
+			for(int j = 0; j < size; j++) {
+				if(board[i][j] == null || "".equals(board[i][j].trim()))
+					System.out.print("   ");
+				else 
+					System.out.print(" " + board[i][j] + " ");
+				if(j < 2)
+					System.out.print("|");
+			}		
+			if(i < 2){
+				System.out.println();
+				System.out.println("-----------");
+			}
+		}
+	}
+
+		
+
+}

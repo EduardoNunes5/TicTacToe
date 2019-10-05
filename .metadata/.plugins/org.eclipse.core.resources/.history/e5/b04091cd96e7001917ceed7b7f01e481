@@ -1,0 +1,39 @@
+package game;
+
+public class TicTacToe {
+	private String[][] board;
+	private StringBuilder StringRepresentation;
+	
+	
+	public TicTacToe() {
+		this.board = new String[3][3];
+		fillEmptyBoard();
+	}
+	
+	public void makeMovement(int i, int j, String elem) {
+		try {
+			this.board[i][j] = elem;
+		}
+		
+		catch(ArrayIndexOutOfBoundsException aiobe) {
+			System.out.println("Illegal index");
+		}
+	}
+	
+	private void fillEmptyBoard() {
+		for(int i = 0; i < this.board.length; i++) {
+			for(int j = 0; j < this.board.length; j++) {
+				this.board[i][j] = "";
+			}
+		}
+	}
+	
+	public String[][] getBoard() {
+		return this.board;
+	}
+	
+	public String toString() {
+		return this.StringRepresentation.toString() +"\r";
+	}
+
+}

@@ -1,0 +1,57 @@
+package game;
+
+public class TicTacToe {
+	private String[][] board;
+	private StringBuilder StringRepresentation;
+	
+	
+	public TicTacToe() {
+		this.board = new String[3][3];
+		this.StringRepresentation = new StringBuilder();
+		fillEmptyBoard();
+		initializeSb();
+	}
+	
+	private void initializeSb() {
+		int columns = this.board.length;
+		for(int i = 0; i < columns; i++) {
+			for(int j = 0; j < columns; j++) {
+				this.StringRepresentation.append(String.format("%3s", this.board[i][j]));
+				if(j < 2)
+					this.StringRepresentation.append("|");
+			}
+			if(i<2) {
+				this.StringRepresentation.append(System.lineSeparator());
+				this.StringRepresentation.append("-----------");
+				this.StringRepresentation.append(System.lineSeparator());
+			}
+			
+		}
+	}
+	
+	public void makeMovement(int i, int j, char elem) {
+		String gambiarra = String.format("%s", elem);
+		this.board[i][j] = gambiarra;
+		updateRepresentation(i, j, elem);
+	}
+	private void updateRepresentation(int i, int j, char elem) {
+		if(j >i)
+			this.StringRepresentation.setCharAt(3+j,elem);
+		else
+			this.StringRepresentation.setCharAt(2+i,elem);
+	
+	}
+	
+	private void fillEmptyBoard() {
+		for(int i = 0; i < this.board.length; i++) {
+			for(int j = 0; j < this.board.length; j++) {
+				this.board[i][j] = "";
+			}
+		}
+	}
+	
+	public String toString() {
+		return this.StringRepresentation.toString();
+	}
+
+}

@@ -1,0 +1,24 @@
+package game;
+
+import java.util.Scanner;
+
+public class TicTacToeMain {
+	
+	public static void main(String[] args) {
+		
+		String[] players = UI.start(new Scanner(System.in));
+		TicTacToeController ttc = new TicTacToeController();
+		while(true) {
+			
+			ttc.setUpPlayers(players);
+			int[] move = UI.readTurn(new Scanner(System.in), ttc.getTurn());
+			UI.printBoard(ttc.getBoard());
+			
+			ttc.makeMove(move[0], move[1]);			
+		}	
+		
+	}
+	
+
+
+}
