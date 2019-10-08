@@ -1,5 +1,6 @@
 package game;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class UI {
@@ -16,8 +17,7 @@ public class UI {
 			p2Move = "1";
 		else
 			p2Move = "0";
-		
-		
+
 		return new String[] {p1Name, p1Move, p2Name, p2Move};
 		
 	}
@@ -54,7 +54,7 @@ public class UI {
 		System.out.println("-----------------------");
 		System.out.println();
 		
-		System.out.println("type end to finish program or any key to reset");
+		System.out.print("enter any key to finish or y to continue playing ->> ");
 		String option = sc.nextLine();
 		return option;
 	}
@@ -69,6 +69,16 @@ public class UI {
 		if(j < 2)
 			System.out.print("|");
 		
+	}
+
+
+	public static String draw(Scanner sc){
+		System.out.println("-----------  DRAW!!! ----------- ");
+		System.out.print("Do you want to play again? (y to continue, any other key to finish) ->> ");
+		String answer = sc.nextLine();
+
+		return answer;
+
 	}
 	
 	

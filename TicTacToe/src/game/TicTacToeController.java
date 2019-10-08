@@ -24,7 +24,7 @@ public class TicTacToeController {
 		return "2nd player";
 	}
 	
-	public boolean makeMove(int line, int column) {
+	public String makeMove(int line, int column) {
 		Player currentPlayer;
 		Player otherPlayer;
 		if(p1.getTurn() == true){
@@ -44,9 +44,13 @@ public class TicTacToeController {
 			currentPlayer.setTurn(true);
 			otherPlayer.setTurn(false);
 			otherPlayer.increaseLosses();
-			return true;
+			return "w";
 		}
-		return false;
+
+		if(ttt.checkDraw()){
+			return "d";
+		}
+		return "c";
 
 	}
 	

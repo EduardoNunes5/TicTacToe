@@ -10,12 +10,13 @@ public class TicTacToe {
 	
 	public void makeMove(int i, int j, int playerMove) {
 		try {
+			if(!board[i][j].equals("")) return;
 			switch(playerMove) {
 				case 0:
-					board[i][j] = "X";
+					board[i][j] = "O";
 					break;
 				case 1:
-					board[i][j] = "O";
+					board[i][j] = "X";
 					break;
 				default:
 					System.out.println("Illegal movement attempt.");
@@ -47,13 +48,27 @@ public class TicTacToe {
 		}
 		
 		if(upLeftToRight == 2 || mainDiagonal == 2 || midLeftToRight == 2 || downLeftToRight == 2) {
-			System.out.println("it was here");
 			return true;
 		}
 		if(board[0][2].equals(board[1][1]) && board[1][1].equals(board[2][0]) && !board[2][0].trim().equals(""))
 			return true;
 		
 		return false;
+	}
+
+	public boolean checkDraw(){
+		int cont = 0;
+		for(int i = 0; i < this.board.length; i ++){
+			for(int j = 0; j < this.board.length; j ++)
+			if(!board[i][j].equals("")){
+				cont ++;
+			}
+		}
+
+		if(cont == 9)
+			return true;
+		return false;
+
 	}
 	
 	private void fillEmptyBoard() {
