@@ -36,18 +36,27 @@ public class TicTacToe {
 		int mainDiagonal = 0;
 		int midLeftToRight = 0;
 		int downLeftToRight = 0;
+		int leftTopToBottom = 0;
+		int middleTopToBottom = 0;
+		int rightTopToBottom = 0;
 		for(int i = 0; i < this.board.length-1; i ++) {
-			if(board[0][i].equals(board[0][i+1]) && !board[0][i].trim().equals("")) 
-				upLeftToRight++;						
 			if(board[i][i].equals(board[i+1][i+1]) && !board[i][i].trim().equals(""))
-				mainDiagonal++;				
-			if(board[1][i].equals(board[i][i+1]) && !board[1][i].trim().equals(""))
+				mainDiagonal++;	
+			if(board[0][i].equals(board[0][i+1]) && !board[0][i].trim().equals("")) 
+				upLeftToRight++;									
+			if(board[1][i].equals(board[1][i+1]) && !board[1][i].trim().equals(""))
 				midLeftToRight++;
 			if(board[2][i].equals(board[2][i+1]) && !board[2][i].trim().equals(""))
 				downLeftToRight++;
+			if(board[i][0].equals(board[i+1][0]) && !board[i][0].trim().equals("")) 
+				leftTopToBottom++;
+			if(board[i][1].equals(board[i+1][1]) && !board[i][1].trim().equals(""))
+				middleTopToBottom++;
+			if(board[i][2].equals(board[i+1][2]) && !board[i][2].trim().equals(""))
+				rightTopToBottom++;
 		}
 		
-		if(upLeftToRight == 2 || mainDiagonal == 2 || midLeftToRight == 2 || downLeftToRight == 2) {
+		if(upLeftToRight == 2 || mainDiagonal == 2 || midLeftToRight == 2 || downLeftToRight == 2 || leftTopToBottom == 2 || middleTopToBottom == 2 || rightTopToBottom == 2) {
 			return true;
 		}
 		if(board[0][2].equals(board[1][1]) && board[1][1].equals(board[2][0]) && !board[2][0].trim().equals(""))
